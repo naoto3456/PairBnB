@@ -12,9 +12,17 @@
  	
  	<% if signed_in? %>
 		<%= current_user.email %>
-
 		<%= button_to "Sign out", sign_out_path, method: :delete %>
-	<% end %>
+    <H3>Menu</H3>
+    <%= link_to "Listings", "/listings" %><br>
+    <%= link_to "New Listing", "/listings/new" %><br>
+  <% else %>    
+    <%= link_to "Sign in with email", sign_in_path %><br>
+    <%= link_to "Sign in with Facebook", "/auth/facebook" %><br>
+    <%= link_to "Sign up", sign_up_path %><br>
+  <% end %>
+    <%= link_to "Top Menu", "/" %>
+
 
     <%= yield %>
   

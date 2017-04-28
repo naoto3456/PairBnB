@@ -1,0 +1,11 @@
+
+<H3>Listings</H3>
+<div>
+
+<% @listings.each do |listing|  %>
+
+	<%= link_to "#{listing.title}:¥#{listing.price}", edit_listing_path(listing) %><br>
+	<p><%= listing.description %></p>
+<% end %>
+
+</div>
