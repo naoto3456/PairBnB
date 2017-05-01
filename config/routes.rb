@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   root "users#dashboad" 
+  post "/listings/search" => "listings#search", as: "search_listings"
 
   # For details oin the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

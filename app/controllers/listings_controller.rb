@@ -5,12 +5,19 @@ class ListingsController < ApplicationController
 		@listings = Listing.all
 	end
 
-	def new
-		@listing = Listing.new
+	def search
+		@listing = Listing.new(listing_param)
+		@listings = Listing.where(price: params[:listing][:price])
+		#@result = Listing.min_max_price(params[:min], params)
+		render 'index'
 	end
 
+	def new
+		@listing = Listing.new
+	end	
+
 	def create
-		@listing = Listing.new(user_params)
+		@listing = Listing.new(listing_param)
 		@listing.user_id = current_user.id
 		if @listing.save
 			redirect_to listings_path
@@ -25,12 +32,7 @@ class ListingsController < ApplicationController
 
 	def update
 		@listing = Listing.find(params[:id])
-		@listing.title = params[:listing][:title]
-		@listing.room_type = params[:listing][:room_type]
-		@listing.price = params[:listing][:price]
-		@listing.description = params[:listing][:description]
-		byebug
-		if @listing.save
+		if @listing.update(listing_param)
 			redirect_to listings_path
 		else
 			render 'edit'
@@ -39,8 +41,8 @@ class ListingsController < ApplicationController
 
 	private
 
-	def user_params
-    	params.require(:listing).permit(:title, :price, :room_type, :description)
+	def listing_param
+    	params.require(:listing).permit(:title, :price, :room_type, :description, {tag_ids: []})
   	end
 
 end

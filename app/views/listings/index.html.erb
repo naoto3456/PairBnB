@@ -2,6 +2,19 @@
 <H3>Listings</H3>
 <div>
 
+<%= form_for @listing, url:{:action => 'search'} do |form| %>
+
+	  <%= form.label :room_type %>
+	  <%= select :listing, :room_type, [["entire_house", :entire_house], ["private_room", :private_room], ["shared_room", :shared_room]] %>
+	  <%= form.label :price %>
+	  <%= form.text_field :price %><br>
+	  
+	  <%= form.submit 'Search' %>
+	</div>
+
+<% end%>
+
+
 <% @listings.each do |listing|  %>
 
 	<%= link_to "#{listing.title}:¥#{listing.price}", edit_listing_path(listing) %><br>
