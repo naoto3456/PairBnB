@@ -20,6 +20,7 @@ class ListingsController < ApplicationController
 		@listing = Listing.new(listing_param)
 		@listing.user_id = current_user.id
 		if @listing.save
+			#render
 			redirect_to listings_path
 		else
 			render 'new'
@@ -39,10 +40,14 @@ class ListingsController < ApplicationController
 		end	
 	end
 
+	def show
+		@listing = Listing.find(params[:id])		
+	end
+
 	private
 
 	def listing_param
-    	params.require(:listing).permit(:title, :price, :room_type, :description, {tag_ids: []})
+    	params.require(:listing).permit(:title, :price, :room_type, :description, {tag_ids: []}, {avatars: []})
   	end
 
 end

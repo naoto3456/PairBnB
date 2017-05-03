@@ -16,6 +16,7 @@
     <H3>Menu</H3>
     <%= link_to "Listings", "/listings" %><br>
     <%= link_to "New Listing", "/listings/new" %><br>
+    <%= link_to "Profile", edit_user_path(current_user.id) %><br>
   <% else %>    
     <%= link_to "Sign in with email", sign_in_path %><br>
     <%= link_to "Sign in with Facebook", "/auth/facebook" %><br>

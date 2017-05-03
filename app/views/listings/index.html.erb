@@ -17,7 +17,15 @@
 
 <% @listings.each do |listing|  %>
 
-	<%= link_to "#{listing.title}:¥#{listing.price}", edit_listing_path(listing) %><br>
+	<%= link_to "#{listing.title}:¥#{listing.price}", listing_path(listing) %><br>
+	<% if !listing.avatars.nil? %>
+  		<% listing.avatars.each do |avator| %>
+    		<% if !avator.file.nil? %>
+      			<%= image_tag avator.thumb.url %>
+    		<% end %>
+  		<% end %>
+	<% end %>
+
 	<p><%= listing.description %></p>
 <% end %>
 
