@@ -1,5 +1,6 @@
 require_relative 'boot'
 
+
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
@@ -13,3 +14,5 @@ module PairBnB
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+require 'carrierwave/orm/activerecord'

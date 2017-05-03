@@ -1,0 +1,42 @@
+<div class="title-field">
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+</div>
+
+<div class="room_type-field">
+  <%= form.label :room_type %>
+  <%= select :listing, :room_type, [["entire_house", :entire_house], ["private_room", :private_room], ["shared_room", :shared_room]] %>
+</div>
+
+<div class="price-field">
+  <%= form.label :price %>
+  <%= form.text_field :price %>
+</div>
+
+<div class="description-field">
+  <%= form.label :description %>
+  <%= form.text_field :description %>
+</div>
+
+<div class="tag-field">
+<%= form.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+</div>
+
+<div class="avatars-field">
+  <%= form.label :avatars %>
+  <%= form.file_field :avatars, multiple: true %>
+</div>
+
+<% if !@listing.avatars.nil? %>
+  <% @listing.avatars.each do |avator| %>
+    <% if !avator.file.nil? %>
+      <%= image_tag avator.url %> 
+    <% end %>
+  <% end %>
+<% end %>
+
+
+
+
+
+

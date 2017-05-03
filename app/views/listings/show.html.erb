@@ -1,0 +1,25 @@
+<h2>Show Listing</h2>
+
+<div class="title-field">
+  <p>title:<%= @listing.title %></p>
+</div>
+
+<div class="room_type-field">
+  <p>room_type:<%= @listing.room_type %></p>
+</div>
+
+<div class="price-field">
+  <p>price:<%= @listing.price %></p>
+</div>
+
+<div class="description-field">
+  <p>description:<%= @listing.description %></p>
+</div>
+
+<% if !@listing.avatars.nil? %>
+  <% @listing.avatars.each do |avator| %>
+    <% if !avator.file.nil? %>
+      <%= image_tag avator.url %> 
+    <% end %>
+  <% end %>
+<% end %>
