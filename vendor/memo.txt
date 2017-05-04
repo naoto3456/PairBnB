@@ -1,9 +1,17 @@
 
-reservation 
- user_id
- listing_id
- date_start
- end_start
+host
+listings/:id/reservations/index
 
+guest
+
+users/:id/reservations/index
+
+
+
+
+View
+
+@reservations.each do
+end
 
 

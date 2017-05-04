@@ -1,0 +1,9 @@
+<H3>My Reservations</H3>
+<div>
+
+<% @reservations.each do |reservation|  %>
+
+	<%= link_to "#{reservation.listing.title}", listing_reservation_path(reservation.listing, reservation) %><br>
+	<p>Start:<%= reservation.date_start %> End:<%= reservation.date_end %></p>
+	
+<% end %>

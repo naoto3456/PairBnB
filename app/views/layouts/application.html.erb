@@ -10,6 +10,7 @@
 
   <body>
  	
+  <div id='menu'>
  	<% if signed_in? %>
 		<%= current_user.email %>
 		<%= button_to "Sign out", sign_out_path, method: :delete %>
@@ -17,6 +18,7 @@
     <%= link_to "Listings", "/listings" %><br>
     <%= link_to "New Listing", "/listings/new" %><br>
     <%= link_to "Profile", edit_user_path(current_user.id) %><br>
+    <%= link_to "My resrvations", user_reservations_path(current_user.id) %><br>
   <% else %>    
     <%= link_to "Sign in with email", sign_in_path %><br>
     <%= link_to "Sign in with Facebook", "/auth/facebook" %><br>
@@ -24,6 +26,7 @@
   <% end %>
     <%= link_to "Top Menu", "/" %>
 
+  </div>
 
     <%= yield %>
   
