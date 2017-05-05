@@ -11,7 +11,7 @@ class ReservationsController < ApplicationController
 		@reservation.listing_id = params[:listing_id]
 
 		if @reservation.save
-			redirect_to '/'
+			redirect_to braintree_new_path
 		else
 
 		end

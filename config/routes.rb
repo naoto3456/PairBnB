@@ -19,7 +19,8 @@
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   root "users#dashboad" 
   post "/listings/search" => "listings#search", as: "search_listing"
-  #post "/listings/:id/reserve" => "listings#reserve", as: "reserve_listing"
+  get 'braintree/new'
+  post 'braintree/checkout'
 
   # For details oin the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
