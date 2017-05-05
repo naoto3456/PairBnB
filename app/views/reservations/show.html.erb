@@ -1,4 +1,10 @@
-<h2>Show Listing</h2>
+<h2>Show Reservation</h2>
+
+
+<p>start:<%= @reservation.date_start %> end:<%= @reservation.date_end %></p>
+
+
+<h3>Listing Information</h3>
 
 <div class="title-field">
   <p>title:<%= @listing.title %></p>
@@ -26,24 +32,4 @@
 <% end %>
 
 
-<%= link_to "Reservation", new_listing_reservation_path(@listing) %><br>
 
-
-
-  <%= form_for [@listing, @reservation] do |form| %>
- 
-	 <div class="date_start-field">
-	  <%= form.label :date_start %>
-	  <%= form.text_field :date_start %>
-	</div>
-
-	<div class="date_end-field">
-	  <%= form.label :date_end %>
-	  <%= form.text_field :date_end %>
-	</div>
-
-    <div class="submit-field">
-      <%= form.submit %>
-    </div>
-
-  <% end %>
