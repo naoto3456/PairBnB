@@ -11,7 +11,10 @@ class ReservationsController < ApplicationController
 		@reservation.listing_id = params[:listing_id]
 
 		if @reservation.save
-			redirect_to braintree_new_path
+			#byebug
+			#result = ReservationMailer.booking_email.deliver_now
+			flash[:success] = "Transaction successful!"
+			redirect_to new_reservation_braintree_path(@reservation)
 		else
 
 		end

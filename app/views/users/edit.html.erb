@@ -1,23 +1,22 @@
 <div id="clearance" class="sign-up">
-  <h2><%= t(".title") %></h2>
 
   <%= form_for @user do |form| %>
     <%= render partial: '/users/form', object: form %>
 
 	<div class="avatar-field">
-	  <%= form.label :avatar %>
-	  <%= form.file_field :avatar %>
+	  <%= form.label :avatar, class: 'control-label'%>
+	  <%= form.file_field :avatar%>
 	</div>
 
 	<p>
 	  <% if !@user.avatar.file.nil? %>
 	    <%= image_tag @user.avatar.url %>
-	    <%= form.check_box :remove_avatar %>Remove avatar
+	    <%= form.check_box :remove_avatar, class: 'form-control' %>Remove avatar
 	  <% end %>
 	</p>
 
     <div class="submit-field">
-      <%= form.submit %>
+      <%= form.submit class: 'btn btn-primary'%>
     </div>
 
   <% end %>

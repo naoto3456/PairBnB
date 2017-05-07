@@ -1,24 +1,44 @@
 <div class="text-field">
-  <%= form.label :email %>
-  <%= form.text_field :email, type: 'email' %>
+  <div class="row">
+    <div class="col-xs-4">
+      <%= form.label :email, class: 'control-label' %>
+      <%= form.text_field :email, type: 'email', class: 'form-control', placeholder: 'xxxxx@xxxx.xx'%>
+    </div>
+  </div>
 </div>
 
 <div class="password-field">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
+  <div class="row">
+    <div class="col-xs-4">
+    <%= form.label :password, class: 'control-label' %>
+    <%= form.password_field :password, class: 'form-control', placeholder: 'PASSWORD' %>
+    </div>
+  </div>
 </div>
 
 <div class="first_name-field">
-  <%= form.label :first_name %>
-  <%= form.text_field :first_name %>
+  <div class="row">
+    <div class="col-xs-4">
+      <%= form.label :first_name, class: 'control-label' %>
+      <%= form.text_field :first_name, class: 'form-control', placeholder: 'FIRST NAME' %>
+    </div>
+  </div>
 </div>
 
 <div class="last_name-field">
-  <%= form.label :last_name %>
-  <%= form.text_field :last_name %>
+  <div class="row">
+    <div class="col-xs-4">
+      <%= form.label :last_name, class: 'control-label' %>
+      <%= form.text_field :last_name, class: 'form-control', placeholder: 'LAST NAME' %>
+    </div>
+  </div>
 </div>
 
 <div class="gender-field">
-  <%= form.label :gender %>
-  <%= select_tag 'user[gender]', options_for_select([["undefined", :undefined], ["male", :male], ["female", :female] ]) %>
+  <div class="row">
+    <div class="col-xs-4">
+      <%= form.label :gender, class: 'control-label' %>
+      <%= select_tag 'user[gender]', options_for_select([["undefined", :undefined], ["male", :male], ["female", :female] ]) , class: 'form-control'%>
+    </div>
+  </div>
 </div>
