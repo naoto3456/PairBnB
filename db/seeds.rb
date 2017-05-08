@@ -27,7 +27,7 @@ uids = []
 User.all.each { |u| uids << u.id }
 
 ActiveRecord::Base.transaction do
-  40.times do 
+  10.times do 
     listing['title'] = Faker::App.name
     listing['room_type'] = rand(0..2)
     #listing['location'] = Faker::Address.country

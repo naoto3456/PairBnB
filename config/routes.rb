@@ -3,6 +3,9 @@
     resources :reservations
   end
 
+  post '/reservations/:reservation_id/braintree/checkout' => "braintree#checkout", as: "checkout_reservation_braintree"
+  get '/reservations/:reservation_id/braintree/new' => "braintree#new", as: "new_reservation_braintree"
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
@@ -19,8 +22,6 @@
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   root "users#dashboad" 
   post "/listings/search" => "listings#search", as: "search_listing"
-  get 'braintree/new'
-  post 'braintree/checkout'
 
   # For details oin the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

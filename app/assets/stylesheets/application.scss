@@ -1,11 +1,41 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
 @import "braintree";
 
 .multicolumnbox {
    column-count: 3;
+}	
+
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    display: block;
+    height: auto;
+    line-height: 1;
+    margin: 0 auto;
+    max-width: 100%;
 }
 
-#menu {
-	background-color: aliceblue
+.list-nav00{
+  list-style:none;
+  width:650px;
+  margin:0 auto;
+}
+.list-nav00:after {//フロート解除用クリアフィックス
+  content: "";
+  clear: both;
+  display: block;
+}
+.list-nav00 li{
+  float:right;
+  width:140px; //ナビの幅980px ÷ ナビの数 7
+}
+.list-nav00 a{
+  display:block;
+  line-height:40px;
+  height:40px;
+  text-align:center;
+  background:white;
+  color:black;
+  border:1px;
 }

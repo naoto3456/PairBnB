@@ -33,8 +33,9 @@ class ListingsController < ApplicationController
 
 	def update
 		@listing = Listing.find(params[:id])
+		byebug
 		if @listing.update(listing_param)
-			redirect_to listings_path
+			redirect_to listings_path, :flash => { :success => "Update succeed!" }
 		else
 			render 'edit'
 		end	
