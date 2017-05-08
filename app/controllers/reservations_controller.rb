@@ -13,7 +13,7 @@ class ReservationsController < ApplicationController
 		if @reservation.save
 			#byebug
 			#result = ReservationMailer.booking_email.deliver_now
-			flash[:success] = "Transaction successful!"
+			flash[:warning] = "Your provisional reservation has been confirmed !!"
 			redirect_to new_reservation_braintree_path(@reservation)
 		else
 
