@@ -55,13 +55,16 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
   config.action_mailer.delivery_method = :smtp
+
   config.action_mailer.smtp_settings = {
-    address:'smtp.sendgrid.net',
-    port: 587,
-    domain: 'localhost:3000',
-    user_name: 'pairbnbdev',
-    password: 'P@ssw0rds',
-    authentication: 'plain',
-    enable_starttls_auto: true
-    }
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'localhost:3000',
+    user_name:            ENV["SMTP_USERNAME"],
+    password:             ENV["SMTP_PASSWORD"],
+    authentication:       'plain',
+    enable_starttls_auto: true  }
+  
+  config.active_job.queue_adapter = :sidekiq
 end
+

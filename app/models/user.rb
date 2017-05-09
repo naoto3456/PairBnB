@@ -1,5 +1,8 @@
 class User < ApplicationRecord
  	include Clearance::User
+  include PgSearch
+
+  multisearchable :against => [:first_name, :last_name, :email]
 
  	has_many :authentications, :dependent => :destroy
   has_many :listings
