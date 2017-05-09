@@ -1,15 +1,16 @@
 <div class='form-group'>
-	<%= form_for @listing, url:{:action => 'search'} do |form| %>
+	<%= form_for ListingSearchForm.new, method:'get', url:{:action => 'index'}  do |form| %>
 
 	  <div class="row">
-	    <div class="col-xs-4">
+	    <div class="col-xs-2">
 
 		  <!--
 		  <%= form.label :room_type, class: 'control-label' %><%= select :listing, :room_type,[["entire_house", :entire_house], ["private_room", :private_room], ["shared_room", :shared_room]]%>
 		  -->
 		  
 		  <%= form.label :price, class: 'control-label'%>
-		  <%= form.text_field :price, class: 'form-control' %>
+		  <%= form.text_field :price_from, class: 'form-control' %>
+		  <%= form.text_field :price_to, class: 'form-control' %>
 		  
 		  <%= form.submit 'Search' %>
 		</div>

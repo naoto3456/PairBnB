@@ -2,15 +2,19 @@ class ListingsController < ApplicationController
 
 	def index
 		@listing = Listing.new
-		@listings = Listing.all
+		if params[:listing_search_form].present?
+			@listings = Listing.price_more(params[:listing_search_form][:price_from]).price_less(params[:listing_search_form][:price_to])
+		else
+			@listings = Listing.all
+		end
 	end
 
-	def search
-		@listing = Listing.new(listing_param)
-		@listings = Listing.where(price: params[:listing][:price])
-		#@result = Listing.min_max_price(params[:min], params)
-		render 'index'
-	end
+	# def search
+	# 	@listing = Listing.new
+	# 	#@listings = Listing.price_range(params[:listing_search_form][:price_from],params[:listing_search_form][:price_to])
+	# 	@listings = Listing.price_more(params[:listing_search_form][:price_from]).price_less(params[:listing_search_form][:price_to])
+	# 	render 'index'
+	# end
 
 	def new
 		@listing = Listing.new

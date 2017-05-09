@@ -14,6 +14,11 @@ View
 @reservations.each do
 end
 
+location
 
-
+accommodates
+bathroom
+bed
+Check In
+Check Ou
 
